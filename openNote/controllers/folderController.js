@@ -89,7 +89,19 @@ openNote.controller("folderController", function(	$scope,
 			$scope.currentFolder={//FIXME config special root
 					_id:null,
 					name:"Home"};
-			loadCurrentFolderContents();
+
+					//THEJ - SYNC DEFAULT
+					var default_remote_url = "https://peartionearldelyinessbar:714fc7db1e114599b466e775f473cfb661ba2c86@datameet.cloudant.com/hackpad";
+					storageService.setRemoteURL(default_remote_url);
+					console.log(storageService.getRemoteURL())
+					storageService.setupSync();
+					$rootScope.$on("replicationComplete", function() {
+						$rootScope.$emit("reloadListView", {});
+						loadCurrentFolderContents();
+	    			});
+
+
+			
 		}
 		else{
 			storageService.database().get($routeParams.id).then(function(doc){
