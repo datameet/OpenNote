@@ -7,14 +7,14 @@ openNote.value("config", {
 	 * Get current version
 	 */
 	getVersion: function(){
-		return "17.02.01";
+		return "517.02.01";
 	},
 
 	/**
 	 * Get update URL
 	 */
 	getUpdateURL: function(){
-		return "https://cdn.rawgit.com/FoxUSA/OpenNote/master/package.json";
+		return "https://raw.githubusercontent.com/datameet/hackpad/gh-pages/package.json";
 	},
 
 	/**
